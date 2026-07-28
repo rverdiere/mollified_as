@@ -4,20 +4,19 @@ import torch.nn as nn
 import torch
 import numpy as np
 import itertools
-import isample
 
-from benchmark_functions import sum_of_sin
+from src.benchmark_functions import sum_of_sin
 from torch.func import grad as fgrad
-from mas import MAS
-from active_sub import AS 
-from train_featuremap import train_featuremap
-from plots import plot_bounds
+from src.mas import MAS
+from src.active_sub import AS 
+from src.train_featuremap import train_featuremap
+from src.plots import plot_bounds
 
 def tensor_to_csv(fname, x):
     np.savetxt(fname, x.numpy(), delimiter=",")
 
 M_choice = "I"
-train_f = True
+train_f = False
 d= 8
 I_d = torch.eye(d)
 m_int=6
@@ -28,9 +27,9 @@ n_add =3
 n_samples = 500
 n_samples_aug = (n_add+1)*n_samples
 n_samples_test = 10000
-n_run = 5
-#t_list = [0.1,0.01,0.003]
-t_list = [0.01]
+n_run = 10
+t_list = [0.1,0.01,0.003]
+#t_list = [0.01]
 m_max = d
 path='results/sum_of_sin/'
 fig_path='figures/sum_of_sin/'
@@ -94,6 +93,7 @@ for run in range(n_run):
 if train_f:
     tensor_to_csv(f"{path}err_as_n{n_samples}_nadd{n_add}_{M_choice}.csv", error_as)
     tensor_to_csv(f"{path}err_mas_n{n_samples}_nadd{n_add}_{M_choice}.csv", error_mas.reshape((n_run, m_max-1)))
-    plot_errors(error_as, error_mas, m_max, f"{fig_path}/err_n{n_samples}_nadd{n_add}_{M_choice}.png")
 else:
-    plot_bounds(bound_as, bound_mas, t_list, m_max, f"{fig_path}/bound_n{n_samples}_nadd{n_add}_{M_choice}.png")
+    tensor_to_csv(f"{path}bound_as_n{n_samples}_nadd{n_add}_{M_choice}.csv", bound_as)
+    for k,t in enumerate(t_list):
+        tensor_to_csv(f"{path}bound_mas_n{n_samples}_nadd{n_add}_t{t}_{M_choice}.csv", bound_mas[:,:,k])

@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-from plots import plot_errors
+from src.plots import plot_errors
 
 n_samples= 500
 n_z=3
