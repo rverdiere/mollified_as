@@ -44,5 +44,5 @@ ax.set_ylim(bottom=-0.05)
 ax.legend(fontsize=14)
 
 plt.tight_layout()
-plt.savefig("figures/fig1.png")
+plt.savefig("fig1.png")
 plt.show()

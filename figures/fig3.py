@@ -27,6 +27,6 @@ ax.set_ylabel("$\psi_n(x)$", fontsize=16)
 ax.grid(True)
 ax.legend(fontsize=14)
 plt.tight_layout()
-plt.savefig("figures/fig3.png")
+plt.savefig("fig3.png")
 plt.show()
 

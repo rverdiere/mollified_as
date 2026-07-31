@@ -19,5 +19,5 @@ ax.tick_params(axis='both', labelsize=14)
 # function to show the plot
 ax.legend(fontsize=14, loc='upper left')
 plt.tight_layout()
-plt.savefig("figures/fig3_t"+str(t)+".png")
+plt.savefig("fig3_t"+str(t)+".png")
 plt.show()

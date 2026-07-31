@@ -58,6 +58,7 @@ class MAS():
     def feature_map(self, x_grad, y_grad, m):
         mas_mat = self.matrix(x_grad,y_grad)
         L,Q = torch.linalg.eigh(mas_mat)
+        L[L<0]=0
         grad_norm = self.grad_norm(x_grad)
         L_M,Q_M = torch.linalg.eigh(self.M)
         r=torch.min(L_M[L_M>0])
