@@ -1,4 +1,4 @@
-# Diffeomorphism based feature learning
+# Mollified Active Subspace
 
 Official implementation of
 
@@ -22,12 +22,14 @@ The project provides
 
 Mollified Active Subspace (MAS) is a linear dimension reduction method which improves upon  [Active Subspace](https://arxiv.org/pdf/1304.2070)(AS).
 MAS uses well chosen additional gradient samples to prevent AS selection errors, see Section 2 of the paper for a comrehensive introtuction to the topic.
-To approximate a model $u : \mathbb{R}^d \rightarrow \R$, the algorithm learns a linear feature map $U_m \mathbb{R}^{d \times m}$ for $m \ll d$ and then regresses the model output $u(X)$ against the learnt features $U_m^\top X$. The feature map is obtained by computing the first $m$ eigenvector of an Active Subspace matrix.
+
+To approximate a model $u : \mathbb{R}^d \rightarrow \mathbb{R}$, the algorithm learns a linear feature map $U_m \in \mathbb{R}^{d \times m}$ for $m \ll d$ and then regresses the model output $u(X)$ against the learnt features $U_m^\top X$. 
+The feature map is obtained by computing the first $m$ eigenvectoris of an Active Subspace matrix.
 
 ## Installation
 
 The wave_model dataset generator relies on
-[DOLFINx](https://github.com/FEniCS/dolfinx),MPI and PETSc. We recommend
+[FEniCS](https://github.com/fenics). We recommend
 installing the dependencies with Conda through the `conda-forge` channel.
 
 Clone the repository:
