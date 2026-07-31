@@ -45,6 +45,6 @@ for (a,b) in cases:
         ax.legend(fontsize=14)
 
         plt.tight_layout()
-        plt.savefig(f"fig4_{k}.png")
+        plt.savefig(f"figures/fig4_{k}.png")
         k+=1
         #plt.show()

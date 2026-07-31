@@ -8,8 +8,8 @@ n_z=9
 runs=2
 m_max=8
 t_list=[0.001]
-path="../results/wave_model/"
-fig_path="wave_model/"
+path="results/wave_model/"
+fig_path="figures/wave_model/"
 #Bounds
 bound_as = torch.tensor(np.loadtxt(f"{path}bound_as_n{n_samples}.csv", delimiter=","))
 bound_as_aug = torch.tensor(np.loadtxt(f"{path}bound_as_aug_n{n_samples_aug}.csv", delimiter=","))
