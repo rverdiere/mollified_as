@@ -21,10 +21,10 @@ The project provides
 - figures generation scripts
 
 Mollified Active Subspace (MAS) is a linear dimension reduction method which improves upon  [Active Subspace](https://arxiv.org/pdf/1304.2070)(AS).
-MAS uses well chosen additional gradient samples to prevent AS selection errors, see Section 2 of the paper for a comrehensive introtuction to the topic.
+MAS uses well chosen additional gradient samples to prevent AS selection errors, see Section 2 of the paper for a comprehensive introtuction to the topic.
 
 To approximate a model $u : \mathbb{R}^d \rightarrow \mathbb{R}$, the algorithm learns a linear feature map $U_m \in \mathbb{R}^{d \times m}$ for $m \ll d$ and then regresses the model output $u(X)$ against the learnt features $U_m^\top X$. 
-The feature map is obtained by computing the first $m$ eigenvectoris of an Active Subspace matrix.
+The feature map is obtained by computing the first $m$ eigenvectors of an Active Subspace matrix.
 
 ## Installation
 
@@ -111,7 +111,7 @@ python fig8.py
 - **`datasets/`** contains utilities for generating the synthetic datasets used in the paper.
 - **`src/`** contains the core implementation of the proposed algorithms.
 - **`results/`** contains the simulation results in csv format.
-- **`results/`** contains the figures in png format.
+- **`figures/`** contains the figures in png format.
 - **`sum_of_sin.py`** Script to run the expiriments from Section 5.1
 - **`wave_model.py`** Script to run the expiriments from Sections 5.2
 
